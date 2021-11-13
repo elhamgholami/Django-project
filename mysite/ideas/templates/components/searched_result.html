@@ -1,0 +1,20 @@
+<!doctype html>
+{% extends 'base.html' %}
+{% include "components/navbar.html"%}
+<html lang="en">
+{% block content %}
+<div class="container border iconborder">
+    {% for result in results %}
+    <kbd style="color: rgb(255, 255, 255);">{{result.yourname}} says: </kbd>
+    <br><br>
+    <blockquote class="blockquote">
+        <h2><mark>{{result.content}}</mark></h2>
+        <footer>
+            <small>{{result.category_choice}}</small>
+            age:{{result.yourage}}
+        </footer>
+    </blockquote>
+    {% endfor %}
+</div>
+</body>
+{% endblock content %}

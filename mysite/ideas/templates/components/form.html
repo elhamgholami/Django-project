@@ -1,0 +1,65 @@
+<!doctype html>
+{% extends 'base.html' %}
+{% include "components/navbar.html"%}
+<html lang="en">
+{% block content %}
+
+<head>
+    <title>Share your idea!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<style type="text/css">
+    body {
+        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmVM7BG0nyXw49n34MkyOGo1NGvDvC4fw8xQ&usqp=CAU');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        font-family: monospace !important
+    }
+    .bg-color {
+          background-color: #04002b!important;
+      }
+</style>
+
+<body>
+    <form action="/tweeting/" method="post">
+        {% csrf_token %}
+        <div class="form-group container text-center bg-info"color="bg-color">
+            <label for="name">How do you want to be known?</label>
+            <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId"
+                placeholder="Identity:">
+            <label for="age">How old are you ?</label>
+            <input type="text" class="form-control " name="age" id="age" aria-describedby="helpId" placeholder="Ex:18">
+            <label for="title">Define a title:</label>
+            <input type="text" class="form-control " name="title" id="title" aria-describedby="helpId" placeholder="A title..">
+            <div class="form-group">
+                <label for="category_choice">Select a category...</label>
+                <select class="form-control" name="category_choice" id="category_choice">
+                    <option>Science</option>
+                    <option>Technology</option>
+                    <option>Engineering</option>
+                    <option>Mathematics</option>
+                </select>
+                <label for="content">What is in your mind?</label>
+                <textarea class="form-control container" name="content" id="content" rows="3"></textarea>
+            </div>
+        </div>
+        <button class="container-fluid btn btn-success" type="submit">Share</button>
+    </form>
+
+</body>
+
+</html>
+{% endblock content %}
