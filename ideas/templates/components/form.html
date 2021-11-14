@@ -28,22 +28,24 @@
         background-size: cover;
         font-family: monospace !important
     }
+
     .bg-color {
-          background-color: #04002b!important;
-      }
+        background-color: #04002b !important;
+    }
 </style>
 
 <body>
     <form action="/tweeting/" method="post">
         {% csrf_token %}
-        <div class="form-group container text-center bg-info"color="bg-color">
+        <div class="form-group container text-center bg-info" color="bg-color">
             <label for="name">How do you want to be known?</label>
             <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId"
                 placeholder="Identity:">
             <label for="age">How old are you ?</label>
             <input type="text" class="form-control " name="age" id="age" aria-describedby="helpId" placeholder="Ex:18">
             <label for="title">Define a title:</label>
-            <input type="text" class="form-control " name="title" id="title" aria-describedby="helpId" placeholder="A title..">
+            <input type="text" class="form-control " name="title" id="title" aria-describedby="helpId"
+                placeholder="A title..">
             <div class="form-group">
                 <label for="category_choice">Select a category...</label>
                 <select class="form-control" name="category_choice" id="category_choice">
@@ -56,7 +58,8 @@
                 <textarea class="form-control container" name="content" id="content" rows="3"></textarea>
             </div>
         </div>
-        <button class="container-fluid btn btn-success" type="submit">Share</button>
+
+        <button class="container-fluid btn btn-primary" type="submit">Share</button>
     </form>
 
 </body>

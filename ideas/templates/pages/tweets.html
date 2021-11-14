@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% include "components/navbar.html"%}
+{% block content %}
+<style>
+  body {
+  background-image: url('https://www.google.com/imgres?imgurl=https%3A%2F%2Fst.depositphotos.com%2F2331871%2F4285%2Fi%2F950%2Fdepositphotos_42851709-stock-photo-abstract-blue-soft-background-with.jpg&imgrefurl=https%3A%2F%2Fdepositphotos.com%2F42851709%2Fstock-photo-abstract-blue-soft-background-with.html&tbnid=vNj5mFoS7lbwBM&vet=12ahUKEwjkudLtoJP0AhWc57sIHQxbCTIQMygFegUIARDcAQ..i&docid=Ck0JrzSJ_M3KpM&w=1024&h=678&q=background%20image%20soft&ved=2ahUKEwjkudLtoJP0AhWc57sIHQxbCTIQMygFegUIARDcAQ');
+}
+  .iconborder {
+    border-color: #020b63 !important;
+  }
+</style>
+<body>
+  <div class="container border iconborder">
+    {% for x in tweets %}
+    <kbd style="color: rgb(255, 255, 255);">{{x.yourname}} says: </kbd>
+    (age:{{x.yourage}})
+    <br><br>
+    <blockquote class="blockquote text-right border"color="dark">
+      <h2><mark>❝{{x.title}}❞</mark></h2>
+    <blockquote class="blockquote text-right border">
+      <h2><mark>{{x.content}}</mark></h2>
+      <form  action="{% url 'delete' x.id %}" method="POST"> 
+        {% csrf_token %}
+        <input type="submit" class="btn btn-outline-danger" value="Delete">
+      </form>
+      <footer>
+        <small>{{x.category_choice}}</small>
+      </footer>
+        
+    </blockquote>
+    
+    {% endfor %}
+    
+  </div>
+</body>
+
+{% endblock content %}

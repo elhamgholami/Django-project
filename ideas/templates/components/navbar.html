@@ -1,3 +1,4 @@
+<!doctype html>
 <nav class="navbar navbar-expand-lg navbar-dark bg-ideashub mb-4">
   <a class="navbar-brand" href="/">IdeasHub</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,12 +28,14 @@
           <a class="nav-link" href="{% url 'login'%}?next={{request.path}}">Login</a>
         </li>
       {% endif %}
+    
+      
       
     </ul>
-    <form action="/search/"class="form-inline my-2 my-lg-0 "method="POST">
+    <form action="/search/" class="form-inline my-2 my-lg-0" method="POST" >
        {% csrf_token %}
-      <input class="form-control mr-sm-2" type="search" placeholder="Search(by name)" aria-label="Search"name='yourname'>
+      <input class="form-control mr-sm-2" type="search" placeholder="Search(by name)" aria-label="Search" name="yourname" >
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
-   </div>
+    </div>
 </nav>
